@@ -52,9 +52,18 @@ h1 {
 }
 </style></head><body><div class="container">
     <h1>🚀 Подключить VPN</h1><!-- ЗАМЕНИ ССЫЛКИ НИЖЕ -->
-<a class="button android" href="vless://41740d5b-4545-4016-9fe7-07bc6c770238@46.225.172.12:8443?security=reality&encryption=none&pbk=-RJLL5NVO5OKsbnt1oTk92fblQ3F7idv2ArlUoqx4E8&fp=safari&spx=%2F&type=tcp&flow=xtls-rprx-vision&sni=www.apple.com&sid=9ef6798bbaaf#PotapoVPN-kvun5gmm">
-    🤖 Подключить на Android
-</a>
+<button onclick="connectVPN()" style="padding:15px;background:green;color:white;border:none;border-radius:10px;width:100%;">
+🤖 Подключить на Android
+</button>
+
+<script>
+async function connectVPN() {
+    let res = await fetch("http://46.225.172.12:5000/create");
+    let data = await res.json();
+
+    window.location.href = data.link;
+}
+</script>
 
 <a class="button ios" href="shadowrocket://add?url=PASTE_BASE64_IOS">
     🍏 Подключить на iPhone
