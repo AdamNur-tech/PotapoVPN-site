@@ -56,12 +56,10 @@ h1 {
 🤖 Подключить на Android
 </button>
 
-<script>
-async function connectVPN() {
-    let res = await fetch("http://46.225.172.12:5000/create");
-    let data = await res.json();
 
-    window.location.href = data.link;
+<script>
+function connectVPN() {
+    window.location.href = "http://46.225.172.12:5000/create";
 }
 </script>
 
