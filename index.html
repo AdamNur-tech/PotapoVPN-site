@@ -2,74 +2,87 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VPN доступ</title><style>
+<title>VPN Shop</title><style>
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: Arial;
     background: #0f172a;
     color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    text-align: center;
 }
 
 .container {
-    text-align: center;
-    background: #1e293b;
-    padding: 30px;
-    border-radius: 20px;
-    width: 90%;
-    max-width: 400px;
+    margin-top: 50px;
 }
 
-h1 {
-    margin-bottom: 20px;
-}
-
-.button {
-    display: block;
-    margin: 10px 0;
+button {
     padding: 15px;
-    border-radius: 12px;
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
+    margin: 10px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
 }
 
-.android {
-    background: #22c55e;
+.android { background: #22c55e; }
+.ios { background: #3b82f6; }
+.buy { background: #f59e0b; }
+
+.box {
+    background: #1e293b;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 15px;
+}
+</style></head>
+<body><div class="container"><h1>Купить VPN</h1><div class="box">
+<h2>Выбери устройство</h2>
+<button class="android" onclick="selectDevice('android')">Android</button>
+<button class="ios" onclick="selectDevice('ios')">iPhone</button>
+</div><div class="box">
+<h2>Тариф</h2>
+<button class="buy" onclick="buyVPN()">Купить (тест)</button>
+</div><div class="box" id="result" style="display:none">
+<h2>Твоя ссылка</h2>
+<p id="link"></p>
+<button onclick="copyLink()">Скопировать</button>
+</div></div><script>
+let device = null;
+
+let links = [
+    {link: "vless://android1", device: "android", used: false},
+    {link: "vless://android2", device: "android", used: false},
+    {link: "vless://ios1", device: "ios", used: false},
+    {link: "vless://ios2", device: "ios", used: false}
+];
+
+function selectDevice(d) {
+    device = d;
+    alert("Выбрано: " + d);
 }
 
-.ios {
-    background: #3b82f6;
+function buyVPN() {
+    if (!device) {
+        alert("Выбери устройство!");
+        return;
+    }
+
+    let found = links.find(l => l.device === device && !l.used);
+
+    if (!found) {
+        alert("Нет доступных конфигов");
+        return;
+    }
+
+    found.used = true;
+
+    document.getElementById("result").style.display = "block";
+    document.getElementById("link").innerText = found.link;
 }
 
-.note {
-    margin-top: 15px;
-    font-size: 14px;
-    opacity: 0.7;
+function copyLink() {
+    let text = document.getElementById("link").innerText;
+    navigator.clipboard.writeText(text);
+    alert("Скопировано!");
 }
-</style></head><body><div class="container">
-    <h1>🚀 Подключить VPN</h1><!-- ЗАМЕНИ ССЫЛКИ НИЖЕ -->
-<button onclick="connectVPN()" style="padding:15px;background:green;color:white;border:none;border-radius:10px;width:100%;">
-🤖 Подключить на Android
-</button>
-
-
-<script>
-function connectVPN() {
-    window.location.href = "http://46.225.172.12:5000/create";
-}
-</script>
-
-<a class="button ios" href="shadowrocket://add?url=PASTE_BASE64_IOS">
-    🍏 Подключить на iPhone
-</a>
-
-<div class="note">
-    Если не открылось — установите VPN приложение и попробуйте снова
-</div>
-
-</div></body>
-  </html>
+</script></body>
+</html>
