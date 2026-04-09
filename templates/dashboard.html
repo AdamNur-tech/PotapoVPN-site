@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Кабинет</title>
+    <style>
+        body {
+            background: #0f172a;
+            color: white;
+            text-align: center;
+            padding-top: 100px;
+            font-family: Arial;
+        }
+
+        .box {
+            background: #1e293b;
+            padding: 30px;
+            display: inline-block;
+            border-radius: 10px;
+        }
+
+        button {
+            padding: 15px 25px;
+            margin: 10px;
+            background: #22c55e;
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .logout {
+            background: #ef4444;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h2>Личный кабинет</h2>
+
+    <p id="userInfo"></p>
+
+    <button onclick="getLink('android')">📱 Android VPN</button>
+    <button onclick="getLink('ios')">🍎 iOS VPN</button>
+
+    <p id="result"></p>
+
+    <br><br>
+    <button class="logout" onclick="logout()">Выйти</button>
+</div>
+
+<script>
+// показать инфу о пользователе
+document.getElementById("userInfo").innerText =
+    "User ID: " + localStorage.getItem("user_id") +
+    " | Role: " + localStorage.getItem("role")
+
+// получить VPN
+function getLink(device) {
+    fetch('/get-link?device=' + device)
+    .then(r => r.json())
+    .then(data => {
+        document.getElementById("result").innerText =
+            data.link || data.error
+    })
+}
+
+// выход
+function logout() {
+    localStorage.clear()
+    window.location.href = "/"
+}
+</script>
+
+</body>
+</html>
