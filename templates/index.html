@@ -75,10 +75,17 @@ function login() {
     })
     .then(r => r.json())
     .then(data => {
-        document.getElementById('result').innerText = JSON.stringify(data)
+        if (data.status === "ok") {
+            localStorage.setItem("user_id", data.user_id)
+            localStorage.setItem("role", data.role)
+
+            window.location.href = "/dashboard"
+        } else {
+            document.getElementById('result').innerText = "Ошибка входа"
+        }
     })
 }
 </script>
 
 </body>
-  </html>
+</html>
