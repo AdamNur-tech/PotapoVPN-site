@@ -27,9 +27,11 @@ def init_db():
 
 init_db()
 
+from flask import render_template
+
 @app.route("/")
 def home():
-    return {"status": "VPN backend работает"}
+    return render_template("index.html")
 
 @app.route("/get-link")
 def get_link():
