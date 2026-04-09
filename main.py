@@ -83,4 +83,9 @@ def login():
     else:
         return {"error": "invalid login"}
 
+
+@app.route("/dashboard")
+def dashboard():
+    return render_template("dashboard.html")
+
 app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
