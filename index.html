@@ -28,41 +28,31 @@ body {
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
+    justify-content: space-between; /* 🔥 растягивает по высоте */
     padding: 20px;
 }
 
-/* ВНУТРЕННИЙ КОНТЕНТ */
-.content {
-    width: 100%;
-    max-width: 420px;
-}
-
-/* ТЕКСТ */
-h1 {
+/* верх (заголовок) */
+.top {
     text-align: center;
     color: white;
-    margin-bottom: 10px;
 }
 
-p {
-    text-align: center;
-    color: #cbd5e1;
-    margin-bottom: 25px;
+/* контейнер кнопок */
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
-/* КНОПКИ */
+/* кнопки */
 .btn {
-    display: block;
     width: 100%;
-    padding: 18px;
-    margin: 10px 0;
+    padding: 20px;
     border-radius: 16px;
     text-align: center;
+    font-size: 17px;
     font-weight: bold;
-    font-size: 16px;
     color: white;
     text-decoration: none;
 }
@@ -94,10 +84,12 @@ p {
 
 <div class="box">
 
-    <div class="content">
-
+    <div class="top">
         <h1>🚀 PotapoVPN</h1>
         <p>🚀 Скорость • 🔒 Безопасность • 🌍 Обход</p>
+    </div>
+
+    <div class="buttons">
 
         <a href="/get-link?device=android" class="btn android">
             📱 Получить Android VPN
