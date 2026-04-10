@@ -4,68 +4,102 @@
     <title>PotapoVPN</title>
     <meta charset="UTF-8">
     <style>
-        body {
-            background: #0f172a;
-            color: white;
-            font-family: Arial;
-            text-align: center;
-            padding-top: 100px;
-        }
+body {
+    margin: 0;
+    background: linear-gradient(135deg, #0f172a, #1e3a8a);
+    font-family: Arial, sans-serif;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
 
-        .box {
-            background: #1e293b;
-            padding: 30px;
-            border-radius: 10px;
-            display: inline-block;
-        }
+/* КАРТОЧКА */
+.box {
+    background: rgba(30, 41, 59, 0.9);
+    padding: 25px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 350px;
+    text-align: center;
+    box-shadow: 0 0 25px rgba(0,0,0,0.4);
+}
 
-        button {
-            margin: 10px;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            background: #6366f1;
-            color: white;
-            cursor: pointer;
-        }
+/* ЗАГОЛОВОК */
+h1 {
+    margin-bottom: 5px;
+}
 
-        a {
-            text-decoration: none;
-        }
-    </style>
+/* КНОПКИ */
+.btn {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 12px;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+}
+
+/* ЦВЕТА */
+.android {
+    background: linear-gradient(45deg, #22c55e, #16a34a);
+}
+
+.ios {
+    background: linear-gradient(45deg, #ef4444, #dc2626);
+}
+
+.download {
+    background: linear-gradient(45deg, #6366f1, #4f46e5);
+}
+
+.profile {
+    background: linear-gradient(45deg, #0ea5e9, #0284c7);
+}
+
+/* ЭФФЕКТ */
+.btn:active {
+    transform: scale(0.95);
+}
+
+/* ТЕКСТ */
+p {
+    opacity: 0.8;
+    margin-bottom: 20px;
+}
+</style>
 </head>
 <body>
 
 <div class="box">
-    <h1>PotapoVPN</h1>
-    <p>Безопасный VPN сервис</p>
+    <h1>🚀 PotapoVPN</h1>
+    <p>Быстрый и безопасный VPN</p>
 
-    <br>
-
-    <a href="/get-link?device=android">
-        <button>📱 Получить Android VPN</button>
+    <a href="/get-link?device=android" class="btn android">
+        📱 Получить Android VPN
     </a>
 
-    <a href="/get-link?device=ios">
-        <button>🍎 Получить iOS VPN</button>
+    <a href="/get-link?device=ios" class="btn ios">
+        🍎 Получить iOS VPN
     </a>
 
-    <br><br>
-
-    <a href="/files/app.apk">
-        <button>⬇ Скачать Android</button>
+    <a href="/files/app.apk" class="btn download">
+        ⬇ Скачать Android
     </a>
 
-    <a href="/files/app.ipa">
-        <button>⬇ Скачать iOS</button>
+    <a href="/files/app.ipa" class="btn download">
+        ⬇ Скачать iOS
     </a>
 
-    <br><br>
-
-    <a href="/dashboard">
-        <button>👤 Личный кабинет</button>
+    <a href="/dashboard" class="btn profile">
+        👤 Личный кабинет
     </a>
-
 </div>
 
 </body>
