@@ -6,29 +6,16 @@
     <style>
 body {
     margin: 0;
-    background: linear-gradient(135deg, #0f172a, #1e3a8a, #312e81);
     font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #0f172a, #1e3a8a, #312e81);
     color: white;
 }
 
-/* ОБЩИЙ КОНТЕЙНЕР */
-.container {
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* КАРТОЧКА */
+/* ПОЛНЫЙ ЭКРАН */
 .box {
     width: 100%;
-    max-width: 420px;
-    height: 100vh; /* ВО ВЕСЬ ЭКРАН */
+    height: 100vh;
     
-    background: rgba(15, 23, 42, 0.95);
-    backdrop-filter: blur(10px);
-
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -37,30 +24,29 @@ body {
     box-sizing: border-box;
 }
 
-/* ЗАГОЛОВОК */
+/* ТЕКСТ */
 h1 {
     text-align: center;
+    margin-bottom: 10px;
 }
 
-/* ТЕКСТ */
 p {
     text-align: center;
     opacity: 0.8;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
-/* КНОПКИ */
+/* КНОПКИ ВО ВЕСЬ ЭКРАН */
 .btn {
     width: 100%;
-    padding: 16px;
-    margin: 10px 0;
-    border-radius: 14px;
+    padding: 18px;
+    margin: 8px 0;
+    border-radius: 16px;
     border: none;
-    font-size: 16px;
+    font-size: 17px;
     font-weight: bold;
     text-decoration: none;
     color: white;
-    display: block;
     text-align: center;
 }
 
@@ -83,7 +69,7 @@ p {
 
 /* НАЖАТИЕ */
 .btn:active {
-    transform: scale(0.95);
+    transform: scale(0.96);
 }
 </style>
 </head>
