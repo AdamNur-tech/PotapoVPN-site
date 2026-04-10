@@ -9,101 +9,113 @@ body {
     background: linear-gradient(135deg, #0f172a, #1e3a8a, #312e81);
     font-family: Arial, sans-serif;
     color: white;
+}
+
+/* ОБЩИЙ КОНТЕЙНЕР */
+.container {
+    width: 100%;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
 }
 
-/* АНИМАЦИЯ */
+/* КАРТОЧКА */
 .box {
-    background: rgba(30, 41, 59, 0.9);
-    padding: 25px;
-    border-radius: 20px;
-    width: 90%;
-    max-width: 350px;
-    text-align: center;
-    box-shadow: 0 0 40px rgba(0,0,0,0.6);
-    animation: fadeIn 0.8s ease;
+    width: 100%;
+    max-width: 420px;
+    height: 100vh; /* ВО ВЕСЬ ЭКРАН */
+    
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(10px);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 20px;
+    box-sizing: border-box;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
+/* ЗАГОЛОВОК */
+h1 {
+    text-align: center;
+}
+
+/* ТЕКСТ */
+p {
+    text-align: center;
+    opacity: 0.8;
+    margin-bottom: 20px;
 }
 
 /* КНОПКИ */
 .btn {
-    display: block;
     width: 100%;
-    padding: 15px;
-    margin: 12px 0;
+    padding: 16px;
+    margin: 10px 0;
     border-radius: 14px;
     border: none;
     font-size: 16px;
     font-weight: bold;
     text-decoration: none;
     color: white;
-    transition: 0.2s;
+    display: block;
+    text-align: center;
 }
 
-/* ЦВЕТА + СВЕЧЕНИЕ */
+/* ЦВЕТА */
 .android {
     background: linear-gradient(45deg, #22c55e, #16a34a);
-    box-shadow: 0 0 15px #22c55e66;
 }
 
 .ios {
     background: linear-gradient(45deg, #ef4444, #dc2626);
-    box-shadow: 0 0 15px #ef444466;
 }
 
 .download {
     background: linear-gradient(45deg, #6366f1, #4f46e5);
-    box-shadow: 0 0 15px #6366f166;
 }
 
 .profile {
     background: linear-gradient(45deg, #0ea5e9, #0284c7);
-    box-shadow: 0 0 15px #0ea5e966;
 }
 
 /* НАЖАТИЕ */
 .btn:active {
-    transform: scale(0.93);
-}
-
-/* НАВЕДЕНИЕ */
-.btn:hover {
-    transform: scale(1.05);
+    transform: scale(0.95);
 }
 </style>
 </head>
 <body>
 
-<div class="box">
-    <h1>🚀 PotapoVPN</h1>
-    <p>🚀 Скорость • 🔒 Безопасность • 🌍 Обход блокировок</p>
+<div class="container">
+    <div class="box">
 
-    <a href="/get-link?device=android" class="btn android">
-        📱 Получить Android VPN
-    </a>
+        <h1>🚀 PotapoVPN</h1>
+        <p>🚀 Скорость • 🔒 Безопасность • 🌍 Обход</p>
 
-    <a href="/get-link?device=ios" class="btn ios">
-        🍎 Получить iOS VPN
-    </a>
+        <a href="/get-link?device=android" class="btn android">
+            📱 Получить Android VPN
+        </a>
 
-    <a href="/files/app.apk" class="btn download">
-        ⬇ Скачать Android
-    </a>
+        <a href="/get-link?device=ios" class="btn ios">
+            🍎 Получить iOS VPN
+        </a>
 
-    <a href="/files/app.ipa" class="btn download">
-        ⬇ Скачать iOS
-    </a>
+        <a href="/files/app.apk" class="btn download">
+            ⬇ Скачать Android
+        </a>
 
-    <a href="/dashboard" class="btn profile">
-        👤 Личный кабинет
-    </a>
+        <a href="/files/app.ipa" class="btn download">
+            ⬇ Скачать iOS
+        </a>
+
+        <a href="/dashboard" class="btn profile">
+            👤 Личный кабинет
+        </a>
+
+    </div>
 </div>
 
 </body>
